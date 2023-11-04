@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { SOS } from 'src/app/models/sos';
 
 @Component({
 	selector: 'app-sos-form',
@@ -7,9 +9,17 @@ import { Component } from '@angular/core';
 })
 export class SosFormComponent {
 
-	constructor() {
+	sos: SOS;
 
-		console.log('%c ', 'color:#FFB86C', 'prova');
+	constructor(private modalCtrl: ModalController) {
+
 	}
 
+	cancel() {
+		return this.modalCtrl.dismiss(null, 'cancel');
+	}
+
+	confirm() {
+		return this.modalCtrl.dismiss(this.sos, 'confirm');
+	}
 }

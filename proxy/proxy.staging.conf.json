@@ -1,0 +1,11 @@
+{
+	"/api/*": {
+		"changeOrigin": true,
+		"logLevel": "debug",
+		"pathRewrite": {
+			"^/api": ""
+		},
+		"secure": true,
+		"target": "https://helpful-example-a054547828.strapiapp.com/api"
+	}
+}

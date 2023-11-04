@@ -1,1 +1,48 @@
-<p>sos works!</p>
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-button
+				color="medium"
+				(click)="cancel()">
+				Cancel
+			</ion-button>
+		</ion-buttons>
+		<ion-title>Nuova richiesta</ion-title>
+		<ion-buttons slot="end">
+			<ion-button
+				(click)="confirm()"
+				[strong]="true">
+				Confirm
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+	<ion-item>
+		<ion-input
+			labelPlacement="stacked"
+			label="Inserisci il titolo della richiesta"
+			[(ngModel)]="sos.title"
+			placeholder="Inserisci il titolo della richiesta"></ion-input>
+	</ion-item>
+	<ion-item>
+		<ion-input
+			labelPlacement="stacked"
+			label="Descrivi cosa succede"
+			[(ngModel)]="sos.description"
+			placeholder="Descrivi cosa succede"></ion-input>
+	</ion-item>
+	<ion-item>
+		<ion-select
+			label="Seleziona l'urgenza"
+			placeholder="Seleziona l'urgenza">
+			<ion-select-option value="verde">Verde (sarebbe gradito aiuto)</ion-select-option>
+			<ion-select-option value="giallo">
+				Giallo (posso farcela, ma ci vorrà un po')
+			</ion-select-option>
+			<ion-select-option value="rosso">
+				Rosso (Senza un aiuto non posso farcela)
+			</ion-select-option>
+		</ion-select>
+	</ion-item>
+</ion-content>

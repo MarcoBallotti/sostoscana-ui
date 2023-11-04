@@ -10,7 +10,7 @@ const config: CapacitorConfig = {
 	appName: 'SOS Toscana',
 	webDir: 'www',
 	server: {
-		androidScheme: 'https'
+		androidScheme: 'https',
 	}
 };
 

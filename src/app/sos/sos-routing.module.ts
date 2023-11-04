@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { SosComponent } from './sos.component';
+import { SosListComponent } from './sos-list/sos-list.component';
+
 
 const routes: Routes = [
 	{
 		path: '',
-		component: SosComponent
+		component: SosListComponent
 	},
 ];
 

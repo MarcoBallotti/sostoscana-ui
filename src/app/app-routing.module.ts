@@ -13,7 +13,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'sos',
-		loadChildren: () => import('./sos/sos.module').then(m => m.SosPageModule)
+		loadChildren: () => import('./sos/sos.module').then(m => m.SosModule)
 	}
 ];
 
