@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
+import { SosFormComponent } from './sos-form/sos-form.component';
 import { SosRoutingModule } from './sos-routing.module';
-import { SosComponent } from './sos.component';
 
 @NgModule({
 	imports: [
@@ -13,6 +13,6 @@ import { SosComponent } from './sos.component';
 		IonicModule,
 		SosRoutingModule
 	],
-	declarations: [SosComponent]
+	declarations: [SosFormComponent]
 })
 export class SosPageModule { }

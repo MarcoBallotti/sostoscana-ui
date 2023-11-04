@@ -9,5 +9,6 @@ export class AppComponent {
 	public appPages = [
 		{ title: 'Chiedi aiuto', url: '/sos', icon: 'archive' },
 	];
+	public labels = ['TOSCANA'];
 	constructor() { }
 }
