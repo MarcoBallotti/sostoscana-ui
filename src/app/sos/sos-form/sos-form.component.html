@@ -25,24 +25,45 @@
 			[(ngModel)]="sos.title"
 			placeholder="Inserisci il titolo della richiesta"></ion-input>
 	</ion-item>
-	<ion-item>
-		<ion-input
-			labelPlacement="stacked"
-			label="Descrivi cosa succede"
-			[(ngModel)]="sos.description"
-			placeholder="Descrivi cosa succede"></ion-input>
-	</ion-item>
+
 	<ion-item>
 		<ion-select
 			label="Seleziona l'urgenza"
+			[(ngModel)]="sos.priority"
 			placeholder="Seleziona l'urgenza">
-			<ion-select-option value="verde">Verde (sarebbe gradito aiuto)</ion-select-option>
-			<ion-select-option value="giallo">
+			<ion-select-option value="1">Verde (sarebbe gradito aiuto)</ion-select-option>
+			<ion-select-option value="2">
 				Giallo (posso farcela, ma ci vorrà un po')
 			</ion-select-option>
-			<ion-select-option value="rosso">
+			<ion-select-option value="3">
 				Rosso (Senza un aiuto non posso farcela)
 			</ion-select-option>
 		</ion-select>
 	</ion-item>
+	<ion-item>
+		<ion-checkbox
+			labelPlacement="start"
+			[(ngModel)]="sos.open">
+			La richiesta è attiva?
+		</ion-checkbox>
+	</ion-item>
+
+	<ion-item>
+		<ion-select
+			label="Seleziona la posizione"
+			[(ngModel)]="sos.position"
+			placeholder="Seleziona la posizione">
+			<ion-select-option *ngFor="let item of positions">{{item.attributes?.title}}</ion-select-option>
+
+		</ion-select>
+	</ion-item>
+
+	<ion-item>
+		<ion-input
+			labelPlacement="stacked"
+			label="Descrivi al meglio come arrivare a destinazione, e l'aiuto di cui hai bisogno"
+			[(ngModel)]="sos.description"
+			placeholder="Descrivi al meglio come arrivare a destinazione, e l'aiuto di cui hai bisogno"></ion-input>
+	</ion-item>
+
 </ion-content>

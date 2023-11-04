@@ -44,7 +44,7 @@ export class SosListComponent {
 		console.log('%c data', 'color:#FFB86C', data);
 
 		if (role === 'confirm') {
-			const call = row?.id ? this.crudService.saveEntity(SOS, 'sos.sos', data) : this.crudService.createEntity(SOS, 'sos.sos', data);
+			const call = row?.id ? this.crudService.saveEntity(SOS, 'soses', { data: data }) : this.crudService.createEntity(SOS, 'soses', { data: data });
 			call.subscribe(res => {
 				this.getAllSos();
 				console.log('%c res', 'color:#FFB86C', res);

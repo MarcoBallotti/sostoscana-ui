@@ -13,85 +13,94 @@
 		{{ 'Le richieste verranno aggiunte alla lista in basso' }}
 	</p>
 </ion-content>
+<ion-content class="ion-padding">
 
-<ngx-datatable
-	[rows]="sosList"
-	[rowHeight]="'auto'"
-	class="bootstrap"
-	[headerHeight]="50"
-	[columnMode]="'force'">
+	<ngx-datatable
+		[rows]="sosList"
+		[rowHeight]="'auto'"
+		class="bootstrap"
+		[headerHeight]="50"
+		[columnMode]="'force'">
 
-	<ngx-datatable-column
-		[sortable]="false"
-		prop="title"
-		[flexGrow]="2"
-		[name]="'Titolo'"
-		[resizeable]="false">
-		<ng-template
-			let-value="value"
-			let-row="row"
-			ngx-datatable-cell-template>
-			{{row?.attributes?.title}}
-		</ng-template>
-	</ngx-datatable-column>
+		<ngx-datatable-column
+			[sortable]="false"
+			prop="title"
+			[flexGrow]="2"
+			[name]="'Titolo'"
+			[resizeable]="false">
+			<ng-template
+				let-value="value"
+				let-row="row"
+				ngx-datatable-cell-template>
+				{{row?.attributes?.title}}
+			</ng-template>
+		</ngx-datatable-column>
 
-	<ngx-datatable-column
-		[sortable]="false"
-		prop="title"
-		[flexGrow]="2"
-		[name]="'Email'"
-		[resizeable]="false">
-		<ng-template
-			let-value="value"
-			let-row="row"
-			ngx-datatable-cell-template>
-			{{row?.attributes?.email}}
-		</ng-template>
-	</ngx-datatable-column>
+		<ngx-datatable-column
+			[sortable]="false"
+			prop="title"
+			[flexGrow]="2"
+			[name]="'Email'"
+			[resizeable]="false">
+			<ng-template
+				let-value="value"
+				let-row="row"
+				ngx-datatable-cell-template>
+				{{row?.attributes?.email}}
+			</ng-template>
+		</ngx-datatable-column>
 
-	<ngx-datatable-column
-		[sortable]="false"
-		prop="priority"
-		[flexGrow]="2"
-		[name]="'Priorità'"
-		[resizeable]="false">
-		<ng-template
-			let-value="value"
-			let-row="row"
-			ngx-datatable-cell-template>
-			<span *ngIf="row?.attributes?.priority==1">Verde</span>
-			<span *ngIf="row?.attributes?.priority==2">Giallo</span>
-			<span *ngIf="row?.attributes?.priority==3">Rosso</span>
-		</ng-template>
-	</ngx-datatable-column>
+		<ngx-datatable-column
+			[sortable]="false"
+			prop="priority"
+			[flexGrow]="2"
+			[name]="'Priorità'"
+			[resizeable]="false">
+			<ng-template
+				let-value="value"
+				let-row="row"
+				ngx-datatable-cell-template>
+				<span *ngIf="row?.attributes?.priority==1">Verde</span>
+				<span *ngIf="row?.attributes?.priority==2">Giallo</span>
+				<span *ngIf="row?.attributes?.priority==3">Rosso</span>
+			</ng-template>
+		</ngx-datatable-column>
 
-	<ngx-datatable-column
-		[sortable]="false"
-		prop="title"
-		[flexGrow]="2"
-		[name]="'Data richiesta'"
-		[resizeable]="false">
-		<ng-template
-			let-value="value"
-			let-row="row"
-			ngx-datatable-cell-template>
-			{{row?.attributes?.insdate | date}}
-		</ng-template>
-	</ngx-datatable-column>
+		<ngx-datatable-column
+			[sortable]="false"
+			prop="title"
+			[flexGrow]="2"
+			[name]="'Data richiesta'"
+			[resizeable]="false">
+			<ng-template
+				let-value="value"
+				let-row="row"
+				ngx-datatable-cell-template>
+				{{row?.attributes?.insdate | date}}
+			</ng-template>
+		</ngx-datatable-column>
 
-	<ngx-datatable-column
-		name="Azioni"
-		[sortable]="false">
-		<ng-template
-			let-row="row"
-			let-value="value"
-			ngx-datatable-cell-template>
-			<ion-button
-				size="small"
-				fill="outline"
-				(click)="openModal(row)">
-				Dettagli
-			</ion-button>
-		</ng-template>
-	</ngx-datatable-column>
-</ngx-datatable>
+		<ngx-datatable-column
+			name="Azioni"
+			[sortable]="false">
+			<ng-template
+				let-row="row"
+				let-value="value"
+				ngx-datatable-cell-template>
+				<ion-button
+					size="small"
+					fill="outline"
+					(click)="openModal(row)">
+					Dettagli
+				</ion-button>
+			</ng-template>
+		</ngx-datatable-column>
+	</ngx-datatable>
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<ion-title class="ion-text-center">
+			App non ufficiale ideata per Regione Toscana
+		</ion-title>
+	</ion-toolbar>
+</ion-footer>

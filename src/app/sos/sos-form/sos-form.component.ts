@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Position } from 'src/app/models/position';
 import { SOS } from 'src/app/models/sos';
+import { CrudService } from 'src/app/shared/crud.service';
 
 @Component({
 	selector: 'app-sos-form',
@@ -10,9 +12,11 @@ import { SOS } from 'src/app/models/sos';
 export class SosFormComponent {
 
 	sos: SOS;
+	positions: Position[] = [];
+	constructor(private modalCtrl: ModalController,
+		private crudService: CrudService) {
 
-	constructor(private modalCtrl: ModalController) {
-
+		this.getPositions();
 	}
 
 	cancel() {
@@ -21,5 +25,11 @@ export class SosFormComponent {
 
 	confirm() {
 		return this.modalCtrl.dismiss(this.sos, 'confirm');
+	}
+
+	getPositions() {
+		this.crudService.getEntities(Position, 'positions').subscribe(res => {
+			this.positions = res['data'];
+		})
 	}
 }
