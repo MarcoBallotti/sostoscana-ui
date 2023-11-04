@@ -1,7 +1,7 @@
 {
-  "name": "lionard-app-ionic",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
+	"name": "sostoscana-ui",
+	"integrations": {
+		"capacitor": {}
+	},
+	"type": "angular"
 }
