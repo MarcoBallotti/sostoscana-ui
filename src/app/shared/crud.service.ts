@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ClassConstructor, instanceToPlain, plainToInstance } from 'class-transformer';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 import { Count, Search } from '../models/advancedSearch';
 
@@ -10,38 +11,39 @@ import { Count, Search } from '../models/advancedSearch';
 	providedIn: 'root',
 })
 export class CrudService {
+	BASE_URL = environment.apiUrl;
 
-	constructor(protected http: HttpClient) { }
+	constructor(protected http: HttpClient) {}
 
 
 	createEntity<T>(entityClass: ClassConstructor<T>, entityName: string, entity: any): Observable<T> {
-		return this.http.post(`api/${entityName}`, instanceToPlain(entity))
+		return this.http.post(`${this.BASE_URL}api/${entityName}`, instanceToPlain(entity))
 			.pipe(map(res => plainToInstance(entityClass, res as Object)));
 	}
 
 	getEntity<T>(entityClass: ClassConstructor<T>, entityName: string, id: number): Observable<T> {
-		return this.http.get(`api/${entityName}/${id}`)
+		return this.http.get(`${this.BASE_URL}api/${entityName}/${id}`)
 			.pipe(map(res => plainToInstance(entityClass, res as Object)));
 	}
 
 	getEntities<T>(entityClass: ClassConstructor<T>, entityName: string): Observable<T> {
-		return this.http.get(`api/${entityName}`)
+		return this.http.get(`${this.BASE_URL}api/${entityName}`)
 			.pipe(map(res => plainToInstance(entityClass, res as Object)));
 	}
 
 	saveEntity<T>(entityClass: ClassConstructor<T>, entityName: string, entity: any): Observable<T> {
-		return this.http.put(`api/${entityName}/${entity.id}`, instanceToPlain(entity))
+		return this.http.put(`${this.BASE_URL}api/${entityName}/${entity.id}`, instanceToPlain(entity))
 			.pipe(map(res => plainToInstance(entityClass, res as Object)));
 	}
 
 	deleteEntity<T>(entityClass: ClassConstructor<T>, entityName: string, entity: any): Observable<any> {
-		return this.http.delete(`api/${entityName}/${entity.id}`);
+		return this.http.delete(`${this.BASE_URL}api/${entityName}/${entity.id}`);
 	}
 
 
 	searchEntities<T>(entityClass: ClassConstructor<T>, entityName: string, search: Search<T>): Observable<{ entities: T[], totalCount: number }> {
 
-		const response = this.http.post(`api/${entityName}/advancedSearch`, instanceToPlain(search))
+		const response = this.http.post(`${this.BASE_URL}api/${entityName}/advancedSearch`, instanceToPlain(search))
 			.pipe(map(res => plainToInstance(entityClass, res as Object[])));
 
 		return response.pipe(map(res => {
@@ -56,7 +58,7 @@ export class CrudService {
 
 
 	countEntities<T>(entityClass: ClassConstructor<any>, entityName: string, search: Search<T>): Observable<Count> {
-		return this.http.post(`api/${entityName}/search`, instanceToPlain(search))
+		return this.http.post(`${this.BASE_URL}api/${entityName}/search`, instanceToPlain(search))
 			.pipe(map(res => plainToInstance(Count, res as Object)));
 	}
 
