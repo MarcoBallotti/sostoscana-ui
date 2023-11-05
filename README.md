@@ -2,6 +2,8 @@
 
 SOS Toscana è un'applicazione web e mobile che permette di segnalare in modo semplice e veloce un'emergenza in Toscana.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8fdb17d8-8454-4779-9019-cefd8a689b90/deploy-status)](https://app.netlify.com/sites/jazzy-meerkat-241e3e/deploys)
+
 ## Panoramica
 
 Questo progetto è stato creato utilizzando Ionic e Capacitor ed è progettato per l'uso di una PWA. Per la distribuzione su dispositivi mobili, è necessario installare Capacitor e aggiungere le piattaforme desiderate.
